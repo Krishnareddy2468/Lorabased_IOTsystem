@@ -60,17 +60,8 @@
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
     import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
 
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-    apiKey: "AIzaSyDEl-pqGkOamQM5827f0VYFsXb9uyRR_qw",
-    authDomain: "agrivision-1e11f.firebaseapp.com",
-    databaseURL: "https://agrivision-1e11f-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "agrivision-1e11f",
-    storageBucket: "agrivision-1e11f.firebasestorage.app",
-    messagingSenderId: "296303435996",
-    appId: "1:296303435996:web:6ce9614b9b8b64b148d419",
-    measurementId: "G-DEX1CHFFEH"
-  };
+    // Import Firebase configuration
+    import { firebaseConfig } from './firebase-config.js';
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);

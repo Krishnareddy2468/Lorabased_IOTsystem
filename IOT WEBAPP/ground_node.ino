@@ -1,19 +1,13 @@
 // ======================= SENSOR NODE (RECEIVER) =======================
-#include <Arduino.h>
-#include <WiFi.h>
-#include <Firebase_ESP_Client.h>
-#include "addons/TokenHelper.h"
 #include "addons/RTDBHelper.h"
-#include <SPI.h>
+#include "addons/TokenHelper.h"
+#include <Arduino.h>
+#include <Firebase_ESP_Client.h>
 #include <LoRa.h>
+#include <SPI.h>
+#include <WiFi.h>
 
-// ================= WiFi Configuration =================
-#define WIFI_SSID "RASPI"
-#define WIFI_PASSWORD "12345678"
-
-// =============== Firebase Configuration ===============
-#define API_KEY "AIzaSyDEl-pqGkOamQM5827f0VYFsXb9uyRR_qw"
-#define DATABASE_URL "https://agrivision-1e11f-default-rtdb.asia-southeast1.firebasedatabase.app/"
+#include "secrets.h"
 
 // ================ LoRa Configuration ==================
 #define LORA_SCK 18
@@ -37,7 +31,8 @@ void setup() {
   LoRa.setPins(LORA_SS, LORA_RST, LORA_DIO0);
   if (!LoRa.begin(915E6)) {
     Serial.println("LoRa initialization failed!");
-    while (1);
+    while (1)
+      ;
   }
   LoRa.setSyncWord(LORA_SYNC_WORD);
   LoRa.setSpreadingFactor(12);
@@ -63,7 +58,8 @@ void setup() {
     Serial.println("Firebase sign-up successful.");
     signupOK = true;
   } else {
-    Serial.printf("Firebase sign-up failed: %s\n", config.signer.signupError.message.c_str());
+    Serial.printf("Firebase sign-up failed: %s\n",
+                  config.signer.signupError.message.c_str());
   }
   Firebase.begin(&config, &auth);
   Firebase.reconnectNetwork(true);
@@ -84,7 +80,8 @@ void loop() {
       if (Firebase.RTDB.setString(&fbdo, path, incoming)) {
         Serial.println("Data uploaded to Firebase successfully.");
       } else {
-        Serial.printf("Firebase upload failed: %s\n", fbdo.errorReason().c_str());
+        Serial.printf("Firebase upload failed: %s\n",
+                      fbdo.errorReason().c_str());
       }
     }
   }
