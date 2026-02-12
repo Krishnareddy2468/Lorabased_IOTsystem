@@ -80,14 +80,14 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ### Hardware Setup
 
-Hardware photos are available locally in `docs/images/hardware/` (excluded from repo to save space).
-
 | | | |
 |:---:|:---:|:---:|
+| ![Setup 1](docs/images/hardware/IMG_1861.jpeg) | ![Setup 2](docs/images/hardware/IMG_1862.jpeg) | ![Setup 3](docs/images/hardware/IMG_1863.jpeg) |
 | *ESP32 Field Node Setup* | *Ground Node Gateway* | *Sensor Connections* |
 
 | | | |
 |:---:|:---:|:---:|
+| ![Setup 4](docs/images/hardware/IMG_1864.jpeg) | ![Setup 5](docs/images/hardware/IMG_1865.jpeg) | ![Setup 6](docs/images/hardware/IMG_1866.jpeg) |
 | *Full Project Assembly* | *Detailed Wiring View* | *Field Deployment Test* |
 
 ### Dashboard Screenshots

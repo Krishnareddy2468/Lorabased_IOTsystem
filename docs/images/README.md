@@ -30,7 +30,6 @@ Use descriptive, lowercase filenames with underscores:
 - `lora_signal_coverage_map.jpeg`
 
 ### Hardware (`hardware/`)
-*Note: Hardware images are excluded from the repository to reduce size.*
 - `IMG_1861.jpeg`
 - `IMG_1862.jpeg`
 - `IMG_1863.jpeg`
