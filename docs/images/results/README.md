@@ -1,6 +1,6 @@
 # 📊 Results — ML & LoRa Performance Charts
 
-Save the following images to this folder with these filenames:
+
 
 | Filename | Description |
 |----------|-------------|
