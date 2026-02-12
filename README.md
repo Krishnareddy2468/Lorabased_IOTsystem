@@ -4,7 +4,7 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 AgriVision is a complete smart agriculture system that collects real-time environmental sensor data from remote field nodes, transmits it over **long-range LoRa radio**, processes it through an **AI/ML irrigation model**, and displays actionable insights on a **live web dashboard**.
 
@@ -53,29 +53,40 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ---
 
-## � Project Gallery
+## 📸 Project Gallery
 
-### Hardware Setup
+### 🧠 ML Model Performance
+
+#### 3D ROC Curves — AUC Comparison
+![3D ROC Curves with AUC Regions](docs/images/results/roc_curves_3d_auc.png)
+*ROC curves comparing Random Forest (0.834), XGBoost (0.838), Gradient Boosting (0.837), and LightGBM (0.831) for soil moisture irrigation prediction*
+
+#### Multi-Metric Model Comparison
+| Performance Flow | Radar Chart |
+|:---:|:---:|
+| ![3D Ribbon Chart](docs/images/results/ribbon_chart_performance.png) | ![3D Radar Chart](docs/images/results/radar_chart_model_comparison.png) |
+| *Performance across Accuracy, Precision, Recall, F1-Score, ROC-AUC* | *Multi-metric comparison across all 4 models* |
+
+### 📡 LoRa Communication Analysis
+
+| Packet Delivery Performance | Signal Coverage Map |
+|:---:|:---:|
+| ![LoRa PDR Mesh](docs/images/results/lora_packet_delivery_mesh.png) | ![LoRa Coverage Map](docs/images/results/lora_signal_coverage_map.png) |
+| *3D Link Quality: PDR vs Distance & Spreading Factor* | *3D Terrain Coverage: Signal distribution from gateway* |
+
+### 🔧 Hardware Setup
 <!-- Add your hardware photos here -->
-<!-- Example: ![ESP32 Forest Node](docs/images/hardware/esp32_forest_node.jpg) -->
 | | |
 |:---:|:---:|
 | *ESP32 Forest Node — Add photo* | *Ground Node Gateway — Add photo* |
 | *Sensor Connections — Add photo* | *Full System Setup — Add photo* |
 
-### Dashboard Screenshots
+### 💻 Dashboard Screenshots
 <!-- Add your dashboard screenshots here -->
-<!-- Example: ![Live Dashboard](docs/images/dashboard/live_dashboard.png) -->
-
-### Demo & Results
-<!-- Add your demo photos and result charts here -->
-<!-- Example: ![ML Prediction Results](docs/images/results/prediction_accuracy.png) -->
-
-> 💡 **To add images**: Place your photos in the `docs/images/` subfolders and uncomment the markdown image lines above.
 
 ---
 
-## �🔧 Hardware Components
+## 🔧 Hardware Components
 
 | Component | Purpose | Pin Configuration |
 |-----------|---------|-------------------|
