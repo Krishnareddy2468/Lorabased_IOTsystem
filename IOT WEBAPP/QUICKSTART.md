@@ -1,6 +1,6 @@
-# 🚀 SmartAgro - Quick Start Guide
+# SmartAgro - Quick Start Guide
 
-## ⚡ Fastest Way to Get Started
+## Fastest Way to Get Started
 
 ### 1. Run Setup Script
 
@@ -9,10 +9,10 @@
 ```
 
 This will:
-- ✓ Check Python and Node.js installations
-- ✓ Create virtual environment
-- ✓ Install all dependencies
-- ✓ Verify Firebase credentials
+- Check Python and Node.js installations
+- Create virtual environment
+- Install all dependencies
+- Verify Firebase credentials
 
 ### 2. Get Firebase Credentials
 
@@ -20,7 +20,7 @@ This will:
 
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Select project: `agrivision-1e11f`
-3. Click ⚙️ **Project Settings** → **Service Accounts**
+3. Click **Project Settings** → **Service Accounts**
 4. Click **Generate New Private Key**
 5. Save file as `serviceAccountKey.json` in project root
 
@@ -53,7 +53,7 @@ Open browser: **http://localhost:8000/login.html**
 
 ---
 
-## 🧪 Testing the System
+## Testing the System
 
 ### Test 1: API Health Check
 
@@ -103,7 +103,7 @@ python3 fetch_and_predict.py listen /sensor_data 5
 
 ---
 
-## 📊 Data Flow
+## Data Flow
 
 ```
 Push Test Data → Firebase → Fetch Script → Flask API → Prediction → Firestore → Dashboard
@@ -111,7 +111,7 @@ Push Test Data → Firebase → Fetch Script → Flask API → Prediction → Fi
 
 ---
 
-## 🐛 Common Issues
+## Common Issues
 
 ### "Module not found" error
 ```bash
@@ -138,7 +138,7 @@ kill -9 <PID>
 
 ---
 
-## 📁 Project Structure (Simplified)
+## Project Structure (Simplified)
 
 ```
 IOT WEBAPP/
@@ -158,7 +158,7 @@ IOT WEBAPP/
 
 ---
 
-## 🎯 Typical Workflow
+## Typical Workflow
 
 1. **Start Flask API** (Terminal 1)
    ```bash
@@ -183,7 +183,7 @@ IOT WEBAPP/
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 - [ ] Configure real IoT sensors (ESP32/Arduino)
 - [ ] Deploy to Firebase Hosting

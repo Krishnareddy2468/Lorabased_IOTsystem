@@ -84,3 +84,11 @@ flask_output.log
 .qodo/
 .antigravity/
 .gemini/
+
+
+# ==========================
+# Large Media Files
+# ==========================
+# Excluding large hardware photos to save space
+docs/images/hardware/
+docs/Testing images/

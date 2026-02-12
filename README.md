@@ -1,4 +1,4 @@
-# 🌾 AgriVision — LoRa-Based Smart IoT Precision Farming System
+# AgriVision — LoRa-Based Smart IoT Precision Farming System
 
 > An end-to-end IoT solution for precision agriculture using **LoRa wireless communication**, **ESP32 microcontrollers**, **AI-powered irrigation prediction**, and a **real-time Firebase-connected web dashboard**.
 
@@ -10,15 +10,15 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ### Key Highlights
 
-- 🛰️ **LoRa Communication** — Long-range (up to 10+ km), low-power wireless data transmission between field nodes
-- 🧠 **AI Irrigation Prediction** — Trained ML model predicts optimal irrigation timing based on sensor data
-- 🔥 **Firebase Integration** — Real-time database, Firestore, and Cloud Functions for cloud-native data flow
-- 📊 **Live Dashboard** — Real-time charts, sensor monitoring, and prediction alerts
-- ⚙️ **Modular Hardware Design** — Separate sensor, forest (transmitter), and ground (receiver) nodes
+- **LoRa Communication** — Long-range (up to 10+ km), low-power wireless data transmission between field nodes
+- **AI Irrigation Prediction** — Trained ML model predicts optimal irrigation timing based on sensor data
+- **Firebase Integration** — Real-time database, Firestore, and Cloud Functions for cloud-native data flow
+- **Live Dashboard** — Real-time charts, sensor monitoring, and prediction alerts
+- **Modular Hardware Design** — Separate sensor, forest (transmitter), and ground (receiver) nodes
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -53,44 +53,49 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ---
 
-## 📸 Project Gallery
+## Project Gallery
 
-### 🧠 ML Model Performance
+### ML Model Performance
 
 #### 3D ROC Curves — AUC Comparison
-![3D ROC Curves with AUC Regions](docs/images/results/roc_curves_3d_auc.png)
+![3D ROC Curves with AUC Regions](docs/images/results/roc_curves_3d_auc.jpeg)
 *ROC curves comparing Random Forest (0.834), XGBoost (0.838), Gradient Boosting (0.837), and LightGBM (0.831) for soil moisture irrigation prediction*
 
 #### Multi-Metric Model Comparison
 | Performance Flow | Radar Chart |
 |:---:|:---:|
-| ![3D Ribbon Chart](docs/images/results/ribbon_chart_performance.png) | ![3D Radar Chart](docs/images/results/radar_chart_model_comparison.png) |
+| ![3D Ribbon Chart](docs/images/results/ribbon_chart_performance.jpeg) | ![3D Radar Chart](docs/images/results/radar_chart_model_comparison.jpeg) |
 | *Performance across Accuracy, Precision, Recall, F1-Score, ROC-AUC* | *Multi-metric comparison across all 4 models* |
 
 #### Feature Importance Analysis
-![Feature Importance 3D Mesh](docs/images/results/feature_importance_3d_mesh.png)
+![Feature Importance 3D Mesh](docs/images/results/feature_importance_3d_mesh.jpeg)
 *3D Mesh Surface showing feature importance (Soil Moisture, Temperature, Humidity, pH, Light) across Random Forest, XGBoost, Gradient Boosting, and LightGBM*
 
-### 📡 LoRa Communication Analysis
+### LoRa Communication Analysis
 
 | Packet Delivery Performance | Signal Coverage Map |
 |:---:|:---:|
-| ![LoRa PDR Mesh](docs/images/results/lora_packet_delivery_mesh.png) | ![LoRa Coverage Map](docs/images/results/lora_signal_coverage_map.png) |
+| ![LoRa PDR Mesh](docs/images/results/lora_packet_delivery_mesh.jpeg) | ![LoRa Coverage Map](docs/images/results/lora_signal_coverage_map.jpeg) |
 | *3D Link Quality: PDR vs Distance & Spreading Factor* | *3D Terrain Coverage: Signal distribution from gateway* |
 
-### 🔧 Hardware Setup
-<!-- Add your hardware photos here -->
-| | |
-|:---:|:---:|
-| *ESP32 Forest Node — Add photo* | *Ground Node Gateway — Add photo* |
-| *Sensor Connections — Add photo* | *Full System Setup — Add photo* |
+### Hardware Setup
 
-### 💻 Dashboard Screenshots
+Hardware photos are available locally in `docs/images/hardware/` (excluded from repo to save space).
+
+| | | |
+|:---:|:---:|:---:|
+| *ESP32 Field Node Setup* | *Ground Node Gateway* | *Sensor Connections* |
+
+| | | |
+|:---:|:---:|:---:|
+| *Full Project Assembly* | *Detailed Wiring View* | *Field Deployment Test* |
+
+### Dashboard Screenshots
 <!-- Add your dashboard screenshots here -->
 
 ---
 
-## 🔧 Hardware Components
+## Hardware Components
 
 | Component | Purpose | Pin Configuration |
 |-----------|---------|-------------------|
@@ -104,29 +109,29 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 LoraBased_IOTsystem/
 │
-├── 📁 docs/                         # Documentation & Media
-│   └── 📁 images/                   #   Project images & photos
-│       ├── 📁 hardware/             #     Circuit & sensor photos
-│       ├── 📁 dashboard/            #     Dashboard screenshots
-│       ├── 📁 architecture/         #     System diagrams
-│       ├── 📁 demo/                 #     Demo day photos
-│       └── 📁 results/              #     ML results & graphs
+├── docs/                         # Documentation & Media
+│   └── images/                   #   Project images & photos
+│       ├── hardware/             #     Circuit & sensor photos
+│       ├── dashboard/            #     Dashboard screenshots
+│       ├── architecture/         #     System diagrams
+│       ├── demo/                 #     Demo day photos
+│       └── results/              #     ML results & graphs
 │
-├── 📁 ESP32_Forestnode/             # LoRa Transmitter Node (Field)
+├── ESP32_Forestnode/             # LoRa Transmitter Node (Field)
 │   └── ESP32_Forestnode.ino         #   Reads sensors, controls pump, sends via LoRa
 │
-├── 📁 ground_node/                  # LoRa Receiver Node (Gateway)
+├── ground_node/                  # LoRa Receiver Node (Gateway)
 │   └── ground_node.ino             #   Receives LoRa data, uploads to Firebase RTDB
 │
-├── 📁 sensor_node/                  # Standalone Sensor Node
+├── sensor_node/                  # Standalone Sensor Node
 │   └── sensor_node.ino             #   Basic sensor reading + LoRa transmission
 │
-├── 📁 IOT WEBAPP/                   # Web Application & ML Backend
+├── IOT WEBAPP/                   # Web Application & ML Backend
 │   ├── app.py                       #   Flask API server with ML model inference
 │   ├── fetch_and_predict.py         #   Fetches Firebase data → sends to Flask API
 │   ├── push_test_data.py            #   Push simulated sensor data for testing
@@ -137,12 +142,12 @@ LoraBased_IOTsystem/
 │   ├── .env.example                 #   Environment variables template
 │   ├── serviceAccountKey.json.template  # Firebase credentials template
 │   │
-│   ├── 📁 public/                   #   Frontend Dashboard
+│   ├── public/                   #   Frontend Dashboard
 │   │   ├── index.html               #     Main dashboard with live charts
 │   │   ├── 404.html                 #     Error page
 │   │   └── dummy_data.json          #     Demo data for offline testing
 │   │
-│   └── 📁 functions/                #   Firebase Cloud Functions
+│   └── functions/                #   Firebase Cloud Functions
 │       ├── index.js                 #     API endpoints (health, store, predict)
 │       └── package.json             #     Node.js dependencies
 │
@@ -152,7 +157,7 @@ LoraBased_IOTsystem/
 
 ---
 
-## 📊 Data Flow Pipeline
+## Data Flow Pipeline
 
 ```
 1. SENSE     →  ESP32 reads DHT11, Soil Moisture, LDR, pH sensors
@@ -167,7 +172,7 @@ LoraBased_IOTsystem/
 
 ---
 
-## 🧠 AI/ML Irrigation Model
+## AI/ML Irrigation Model
 
 The system uses a **scikit-learn** classification model trained on agricultural sensor data:
 
@@ -185,7 +190,7 @@ The system uses a **scikit-learn** classification model trained on agricultural 
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone the Repository
 
@@ -242,7 +247,7 @@ python3 fetch_and_predict.py listen /sensor_data 5
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### Flask API (`http://127.0.0.1:5001`)
 
@@ -262,7 +267,7 @@ python3 fetch_and_predict.py listen /sensor_data 5
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -277,7 +282,7 @@ python3 fetch_and_predict.py listen /sensor_data 5
 
 ---
 
-## 🔐 Security
+## Security
 
 - `serviceAccountKey.json` is **never committed** — use the `.template` version as reference
 - Firebase database rules configured in `database.rules.json`
@@ -286,13 +291,13 @@ python3 fetch_and_predict.py listen /sensor_data 5
 
 ---
 
-## 📄 License
+## License
 
 This project is built for educational and agricultural research purposes.
 
 ---
 
 <p align="center">
-  <b>🌱 Built with passion for Smart Agriculture & IoT 🌱</b><br>
+  <b>Built with passion for Smart Agriculture & IoT</b><br>
   <i>AgriVision — Making farming smarter, one sensor at a time</i>
 </p>

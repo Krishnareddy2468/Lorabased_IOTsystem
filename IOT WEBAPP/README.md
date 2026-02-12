@@ -2,7 +2,7 @@
 
 An intelligent IoT-based agriculture monitoring system with real-time sensor data tracking, AI-powered irrigation predictions, and a beautiful web dashboard.
 
-## 🌟 Features
+## Features
 
 - **Real-time Sensor Monitoring**: Track soil moisture, temperature, humidity, light, pH, and rainfall
 - **AI Irrigation Predictions**: Machine learning model predicts optimal irrigation timing
@@ -10,7 +10,7 @@ An intelligent IoT-based agriculture monitoring system with real-time sensor dat
 - **Responsive Dashboard**: Beautiful, modern web interface with live charts
 - **Multi-source Data**: Supports both Firebase Realtime Database and REST API
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.8 or higher
 - Node.js 18 or higher
@@ -20,7 +20,7 @@ An intelligent IoT-based agriculture monitoring system with real-time sensor dat
   - Cloud Functions enabled (optional for deployment)
 - Firebase service account key JSON file
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone and Setup
 
@@ -60,7 +60,7 @@ npm install
 cd ..
 ```
 
-## 🎯 Running the Application
+## Running the Application
 
 ### Option 1: Local Development (Recommended for Testing)
 
@@ -99,7 +99,7 @@ firebase login
 firebase deploy
 ```
 
-## 📊 Usage Guide
+## Usage Guide
 
 ### Testing the System
 
@@ -168,7 +168,7 @@ curl -X POST http://127.0.0.1:5001/predict \
    - AI predictions update in real-time
    - Alerts show when irrigation is needed
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 IOT WEBAPP/
@@ -191,7 +191,7 @@ IOT WEBAPP/
     └── package.json          # Function dependencies
 ```
 
-## 🔧 Configuration
+## Configuration
 
 ### Flask API (`app.py`)
 
@@ -224,7 +224,7 @@ FLASK_PORT=5001
 FIREBASE_DATABASE_URL=https://agrivision-1e11f-default-rtdb.asia-southeast1.firebasedatabase.app
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Manual Testing Flow
 
@@ -247,7 +247,7 @@ FIREBASE_DATABASE_URL=https://agrivision-1e11f-default-rtdb.asia-southeast1.fire
 - `POST /storeSensorData` - Store sensor data
 - `GET /getPrediction` - Get latest prediction
 
-## 📱 Data Flow
+## Data Flow
 
 ```
 IoT Sensors (ESP32/Arduino)
@@ -265,7 +265,7 @@ Firestore (fields/field_1) ← Dashboard reads from here
 Web Dashboard (public/dashboard.html)
 ```
 
-## 🔐 Security Notes
+## Security Notes
 
 ⚠️ **IMPORTANT**: Never commit `serviceAccountKey.json` to version control!
 
@@ -280,7 +280,7 @@ node_modules/
 *.local
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Flask API not connecting
 
@@ -313,7 +313,7 @@ ls -la irrigation_model.pkl
 2. Verify `dummy_data.json` exists in `public/`
 3. Check if Firebase is initialized correctly
 
-## 📦 Dependencies
+## Dependencies
 
 ### Python
 
@@ -329,7 +329,7 @@ ls -la irrigation_model.pkl
 - firebase-admin 12.6.0
 - firebase-functions 6.0.1
 
-## 🚀 Deployment
+## Deployment
 
 ### Deploy to Firebase
 
@@ -356,15 +356,15 @@ firebase apphosting:backends:create
 gcloud run deploy smartagro-api --source .
 ```
 
-## 📄 License
+## License
 
 This project is for educational and agricultural purposes.
 
-## 🤝 Contributing
+## Contributing
 
 Feel free to submit issues and enhancement requests!
 
-## 📞 Support
+## Support
 
 For issues or questions:
 - Check Firebase Console for database/function logs
@@ -373,4 +373,4 @@ For issues or questions:
 
 ---
 
-**Made with 🌱 for Smart Agriculture**
+**Made with for Smart Agriculture**
