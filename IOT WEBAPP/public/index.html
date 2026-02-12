@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Precision Agriculture Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Simple CSS styling for a clean dashboard -->
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1, h2 { color: #2E7D32; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 8px; text-align: center; }
+    #chartContainer { width: 100%; max-width: 600px; margin: auto; }
+    #prediction { background-color: #f0f4c3; padding: 10px; border-radius: 5px; }
+  </style>
+  <!-- Load Chart.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Smart Precision Agriculture Dashboard</h1>
+  
+  <!-- Latest Sensor Data Section -->
+  <div id="sensorDataDisplay">
+    <h2>Latest Sensor Data</h2>
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Humidity (%)</th>
+          <th>Temperature (°C)</th>
+          <th>Moisture</th>
+          <th>PH value</th>
+          <th>Light</th>
+        </tr>
+      </thead>
+      <tbody id="dataBody">
+        <!-- Data rows will be added here -->
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Prediction Section -->
+  <div id="prediction">
+    <h2>Crop Monitoring Prediction</h2>
+    <p id="predictionText">Loading prediction...</p>
+  </div>
+  
+  <!-- Chart Section -->
+  <div id="chartContainer">
+    <h2>Humidity Over Time</h2>
+    <canvas id="humidityChart"></canvas>
+  </div>
+  
+  <!-- Firebase and App Logic -->
+  <!-- Use type="module" so we can import Firebase modules directly -->
+  <script type="module">
+    // Import the functions from the Firebase SDK modules needed for your app.
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-analytics.js";
+    import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyDEl-pqGkOamQM5827f0VYFsXb9uyRR_qw",
+    authDomain: "agrivision-1e11f.firebaseapp.com",
+    databaseURL: "https://agrivision-1e11f-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "agrivision-1e11f",
+    storageBucket: "agrivision-1e11f.firebasestorage.app",
+    messagingSenderId: "296303435996",
+    appId: "1:296303435996:web:6ce9614b9b8b64b148d419",
+    measurementId: "G-DEX1CHFFEH"
+  };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase(app);
+
+    // Set up Chart.js chart for humidity over time
+    const ctx = document.getElementById('humidityChart').getContext('2d');
+    const humidityData = {
+      labels: [],
+      datasets: [{
+        label: 'Humidity (%)',
+        data: [],
+        borderColor: 'blue',
+        fill: false,
+      }]
+    };
+
+    // For simplicity during testing, use a basic line chart without a time adapter.
+    // Later, you can add a time adapter (like chartjs-adapter-date-fns) for a time-based X-axis.
+    const humidityChart = new Chart(ctx, {
+      type: 'line',
+      data: humidityData,
+      options: {
+        scales: {
+          x: {
+            title: { display: true, text: 'Time' }
+          },
+          y: {
+            beginAtZero: true,
+            max: 100,
+            title: { display: true, text: 'Humidity (%)' }
+          }
+        }
+      }
+    });
+
+    // Function to update crop prediction based on sensor data
+    function updatePrediction(moisture, humidity, temperature) {
+      let predictionText = "";
+      if (moisture < 400) {
+        predictionText += "Soil moisture is low; irrigation is recommended. ";
+      } else {
+        predictionText += "Soil moisture is adequate. ";
+      }
+      if (humidity < 40) {
+        predictionText += "Low humidity detected—monitor for drought stress.";
+      } else if (humidity > 80) {
+        predictionText += "High humidity detected—risk of fungal diseases.";
+      } else {
+        predictionText += "Humidity levels are optimal.";
+      }
+      if (temperature > 35) {
+        predictionText += " High temperature—ensure adequate cooling.";
+      }
+      document.getElementById('predictionText').innerText = predictionText;
+    }
+
+    // Helper function to parse sensor data from a string
+    function parseSensorData(dataStr) {
+      // Expected format: "Humidity:59.00,Temp:32.10,Rain:4095,Moisture:4095,LDR:Dark"
+      const dataObj = {};
+      const parts = dataStr.split(',');
+      parts.forEach(part => {
+        const [key, value] = part.split(':');
+        dataObj[key.trim()] = value.trim();
+      });
+      return dataObj;
+    }
+
+    // Listen for new sensor data from Firebase Realtime Database at /smart_agri/sensors
+    const sensorDataRef = ref(db, '/smart_agri/sensors');
+    onChildAdded(sensorDataRef, (snapshot) => {
+      const dataObj = snapshot.val();
+      const timestamp = new Date();  // Using current time as the timestamp
+      
+      // Update the HTML table with the new sensor data
+      const tableBody = document.getElementById('dataBody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${timestamp.toLocaleString()}</td>
+                <td>${dataObj["humidity"] || '-'}</td>
+                <td>${dataObj["temperature"] || '-'}</td>
+                <td>${dataObj["soil"] || '-'}</td>
+                <td>${dataObj["pH"] || dataObj["ph"] || '-'}</td>
+                <td>${dataObj["light"] || '-'}</td>`;
+      tableBody.prepend(tr);
+      
+      // Update the Chart with the new humidity reading
+      humidityData.labels.push(timestamp.toLocaleTimeString());
+      humidityData.datasets[0].data.push(parseFloat(dataObj["humidity"]) || 0);
+      humidityChart.update();
+      
+      // Update the crop prediction based on new sensor values
+      updatePrediction(parseInt(dataObj["soil"]) || 0,
+                 parseFloat(dataObj["humidity"]) || 0,
+                 parseFloat(dataObj["temperature"]) || 0);
+    });
+  </script>
+</body>
+</html>
