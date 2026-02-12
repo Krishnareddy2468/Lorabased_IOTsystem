@@ -67,6 +67,10 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 | ![3D Ribbon Chart](docs/images/results/ribbon_chart_performance.png) | ![3D Radar Chart](docs/images/results/radar_chart_model_comparison.png) |
 | *Performance across Accuracy, Precision, Recall, F1-Score, ROC-AUC* | *Multi-metric comparison across all 4 models* |
 
+#### Feature Importance Analysis
+![Feature Importance 3D Mesh](docs/images/results/feature_importance_3d_mesh.png)
+*3D Mesh Surface showing feature importance (Soil Moisture, Temperature, Humidity, pH, Light) across Random Forest, XGBoost, Gradient Boosting, and LightGBM*
+
 ### 📡 LoRa Communication Analysis
 
 | Packet Delivery Performance | Signal Coverage Map |
