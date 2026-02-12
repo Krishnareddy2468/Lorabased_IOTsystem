@@ -53,7 +53,29 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ---
 
-## 🔧 Hardware Components
+## � Project Gallery
+
+### Hardware Setup
+<!-- Add your hardware photos here -->
+<!-- Example: ![ESP32 Forest Node](docs/images/hardware/esp32_forest_node.jpg) -->
+| | |
+|:---:|:---:|
+| *ESP32 Forest Node — Add photo* | *Ground Node Gateway — Add photo* |
+| *Sensor Connections — Add photo* | *Full System Setup — Add photo* |
+
+### Dashboard Screenshots
+<!-- Add your dashboard screenshots here -->
+<!-- Example: ![Live Dashboard](docs/images/dashboard/live_dashboard.png) -->
+
+### Demo & Results
+<!-- Add your demo photos and result charts here -->
+<!-- Example: ![ML Prediction Results](docs/images/results/prediction_accuracy.png) -->
+
+> 💡 **To add images**: Place your photos in the `docs/images/` subfolders and uncomment the markdown image lines above.
+
+---
+
+## �🔧 Hardware Components
 
 | Component | Purpose | Pin Configuration |
 |-----------|---------|-------------------|
@@ -71,6 +93,14 @@ AgriVision is a complete smart agriculture system that collects real-time enviro
 
 ```
 LoraBased_IOTsystem/
+│
+├── 📁 docs/                         # Documentation & Media
+│   └── 📁 images/                   #   Project images & photos
+│       ├── 📁 hardware/             #     Circuit & sensor photos
+│       ├── 📁 dashboard/            #     Dashboard screenshots
+│       ├── 📁 architecture/         #     System diagrams
+│       ├── 📁 demo/                 #     Demo day photos
+│       └── 📁 results/              #     ML results & graphs
 │
 ├── 📁 ESP32_Forestnode/             # LoRa Transmitter Node (Field)
 │   └── ESP32_Forestnode.ino         #   Reads sensors, controls pump, sends via LoRa
