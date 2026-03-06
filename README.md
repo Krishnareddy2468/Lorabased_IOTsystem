@@ -1,4 +1,4 @@
-# AgriVision — LoRa-Based Smart IoT Precision Farming System
+LoRa-Based Smart IoT Precision Farming System
 
 > An end-to-end IoT solution for precision agriculture using **LoRa wireless communication**, **ESP32 microcontrollers**, **AI-powered irrigation prediction**, and a **real-time Firebase-connected web dashboard**.
 
@@ -6,7 +6,7 @@
 
 ## Overview
 
-AgriVision is a complete smart agriculture system that collects real-time environmental sensor data from remote field nodes, transmits it over **long-range LoRa radio**, processes it through an **AI/ML irrigation model**, and displays actionable insights on a **live web dashboard**.
+LoRa-Based Smart IoT Precision Farming System is a complete smart agriculture system that collects real-time environmental sensor data from remote field nodes, transmits it over **long-range LoRa radio**, processes it through an **AI/ML irrigation model**, and displays actionable insights on a **live web dashboard**.
 
 ### Key Highlights
 
